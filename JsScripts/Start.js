@@ -17,5 +17,6 @@ function createIframe()
     placeholder.appendChild(webPage); //add object to place
  
 }
+
 createIframe();
 

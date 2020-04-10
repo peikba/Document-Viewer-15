@@ -1,6 +1,6 @@
-page 69000 "BAC Web Browser FactBox"
+page 69001 "BAC Web Browser Full"
 {
-    PageType = CardPart;
+    PageType = Card;
     SourceTable = "Incoming Document";
     layout
     {
@@ -9,28 +9,15 @@ page 69000 "BAC Web Browser FactBox"
             usercontrol(WebBrowser; WebBrowserDemo)
             {
                 ApplicationArea = all;
-            }
-        }
-    }
 
-    actions
-    {
-        area(Processing)
-        {
-            action(Open)
-            {
-                ApplicationArea = All;
-                Promoted = true;
-                PromotedOnly = true;
-                Image = DocInBrowser;
-
-                trigger OnAction()
+                trigger WebPageClicked()
                 begin
-                    page.run(page::"BAC Web Browser Full", Rec);
+                    Message('Hello');
                 end;
             }
         }
     }
+
     trigger OnAfterGetCurrRecord()
     var
         Base64Txt: Text;
@@ -48,6 +35,7 @@ page 69000 "BAC Web Browser FactBox"
             IncomDocAttach.Content.CreateInStream(InStr);
             CopyStream(OutStr, InStr);
             Base64Txt := TempBlob.ToBase64String();
+            message('%1', Base64Txt);
             case IncomDocAttach."File Extension" of
                 'pdf':
                     CurrPage.WebBrowser.embedHomePage('data:application/pdf;base64,' + Base64Txt);

@@ -1,7 +1,11 @@
 controladdin WebBrowserDemo
 {
     MaximumHeight = 500;
-    MaximumWidth = 700;
+    RequestedHeight = 500;
+    MinimumHeight = 500;
+    MaximumWidth = 600;
+    RequestedWidth = 300;
+    MinimumWidth = 300;
     VerticalStretch = true;
     VerticalShrink = true;
     HorizontalStretch = true;
@@ -11,6 +15,8 @@ controladdin WebBrowserDemo
     StartupScript = 'JsScripts/Start.js';
 
     event Ready();
+    event WebPageClicked();
+    procedure embedHomePage(HomePage: Text);
+    
 
-    procedure embedHomePage(HomePage : Text);
 }
