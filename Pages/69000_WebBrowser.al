@@ -6,9 +6,14 @@ page 69000 "BAC Web Browser FactBox"
     {
         area(Content)
         {
-            usercontrol(WebBrowser; WebBrowserDemo)
+            usercontrol(ShowDocument; ShowDocument)
             {
                 ApplicationArea = all;
+                trigger DocumentClicked()
+                begin
+                    Message('Hello');
+                end;
+
             }
         }
     }
@@ -26,7 +31,7 @@ page 69000 "BAC Web Browser FactBox"
 
                 trigger OnAction()
                 begin
-                    page.run(page::"BAC Web Browser Full", Rec);
+                    //page.run(page::"BAC Web Browser Factbox", Rec);
                 end;
             }
         }
@@ -50,12 +55,14 @@ page 69000 "BAC Web Browser FactBox"
             Base64Txt := TempBlob.ToBase64String();
             case IncomDocAttach."File Extension" of
                 'pdf':
-                    CurrPage.WebBrowser.embedHomePage('data:application/pdf;base64,' + Base64Txt);
+                    CurrPage.ShowDocument.embedDocument('data:application/pdf;base64,' + Base64Txt);
                 'jpg':
-                    CurrPage.WebBrowser.embedHomePage('data:image/jpg;base64,' + Base64Txt);
+                    CurrPage.ShowDocument.embedDocument('data:image/jpg;base64,' + Base64Txt);
                 'png':
-                    CurrPage.WebBrowser.embedHomePage('data:image/png;base64,' + Base64Txt);
+                    CurrPage.ShowDocument.embedDocument('data:image/png;base64,' + Base64Txt);
             end;
+        end else begin
+            CurrPage.ShowDocument.embedDocument('./Images/NoDucument.png');
         end;
     end;
 }

@@ -1,4 +1,4 @@
-controladdin WebBrowserDemo
+controladdin ShowDocument
 {
     MaximumHeight = 500;
     RequestedHeight = 500;
@@ -15,8 +15,8 @@ controladdin WebBrowserDemo
     StartupScript = 'JsScripts/Start.js';
 
     event Ready();
-    event WebPageClicked();
-    procedure embedHomePage(HomePage: Text);
-    
+    event DocumentClicked();
+    procedure embedDocument(inDocument: Text);
+
 
 }

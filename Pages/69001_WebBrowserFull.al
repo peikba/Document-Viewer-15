@@ -6,14 +6,9 @@ page 69001 "BAC Web Browser Full"
     {
         area(Content)
         {
-            usercontrol(WebBrowser; WebBrowserDemo)
+            usercontrol(ShowDocument; ShowDocument)
             {
                 ApplicationArea = all;
-
-                trigger WebPageClicked()
-                begin
-                    Message('Hello');
-                end;
             }
         }
     }
@@ -35,15 +30,16 @@ page 69001 "BAC Web Browser Full"
             IncomDocAttach.Content.CreateInStream(InStr);
             CopyStream(OutStr, InStr);
             Base64Txt := TempBlob.ToBase64String();
-            message('%1', Base64Txt);
             case IncomDocAttach."File Extension" of
                 'pdf':
-                    CurrPage.WebBrowser.embedHomePage('data:application/pdf;base64,' + Base64Txt);
+                    CurrPage.ShowDocument.embedDocument('data:application/pdf;base64,' + Base64Txt);
                 'jpg':
-                    CurrPage.WebBrowser.embedHomePage('data:image/jpg;base64,' + Base64Txt);
+                    CurrPage.ShowDocument.embedDocument('data:image/jpg;base64,' + Base64Txt);
                 'png':
-                    CurrPage.WebBrowser.embedHomePage('data:image/png;base64,' + Base64Txt);
+                    CurrPage.ShowDocument.embedDocument('data:image/png;base64,' + Base64Txt);
             end;
+        end else begin
+            CurrPage.ShowDocument.embedDocument('./Images/NoDucument.png');
         end;
     end;
 }
