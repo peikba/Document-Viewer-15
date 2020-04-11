@@ -1,4 +1,4 @@
-controladdin ShowDocument
+controladdin ShowDocumentFull
 {
     MaximumHeight = 500;
     RequestedHeight = 500;
@@ -10,12 +10,11 @@ controladdin ShowDocument
     VerticalShrink = true;
     HorizontalStretch = true;
     HorizontalShrink = true;
-    Scripts = 'JsScripts/Code.js';
+    Scripts = 'JsScripts/Code2.js';
     StyleSheets = 'StyleSheets/StyleSheet.css';
-    StartupScript = 'JsScripts/Start.js';
-    Images = './Images/NoDocument.png';
+    StartupScript = 'JsScripts/Start2.js';
 
     event Ready();
-    event DocumentClicked();
-    procedure embedDocument(inDocument: Text);
+    procedure embedDocument2(inDocument: Text);
+    procedure FullScreen();
 }

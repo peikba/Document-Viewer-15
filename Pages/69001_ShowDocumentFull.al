@@ -1,14 +1,19 @@
-page 69001 "BAC Web Browser Full"
+page 69001 "BAC Show Document Full"
 {
-    PageType = Card;
+    PageType = Cardpart;
     SourceTable = "Incoming Document";
     layout
     {
         area(Content)
         {
-            usercontrol(ShowDocument; ShowDocument)
+            usercontrol(ShowDocumentFull; ShowDocumentFull)
             {
                 ApplicationArea = all;
+                trigger Ready()
+                begin
+                    //Not working
+                    //CurrPage.ShowDocumentFull.FullScreen();
+                end;
             }
         }
     }
@@ -30,16 +35,17 @@ page 69001 "BAC Web Browser Full"
             IncomDocAttach.Content.CreateInStream(InStr);
             CopyStream(OutStr, InStr);
             Base64Txt := TempBlob.ToBase64String();
+            //Message('%1', Base64Txt);
             case IncomDocAttach."File Extension" of
                 'pdf':
-                    CurrPage.ShowDocument.embedDocument('data:application/pdf;base64,' + Base64Txt);
+                    CurrPage.ShowDocumentFull.embedDocument2('data:application/pdf;base64,' + Base64Txt);
                 'jpg':
-                    CurrPage.ShowDocument.embedDocument('data:image/jpg;base64,' + Base64Txt);
+                    CurrPage.ShowDocumentFull.embedDocument2('data:image/jpg;base64,' + Base64Txt);
                 'png':
-                    CurrPage.ShowDocument.embedDocument('data:image/png;base64,' + Base64Txt);
+                    CurrPage.ShowDocumentFull.embedDocument2('data:image/png;base64,' + Base64Txt);
             end;
         end else begin
-            CurrPage.ShowDocument.embedDocument('./Images/NoDucument.png');
+            CurrPage.ShowDocumentFull.embedDocument2('data:image/png;./Images/NoDocument.png');
         end;
     end;
 }

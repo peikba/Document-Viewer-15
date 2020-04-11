@@ -1,5 +1,6 @@
-page 69000 "BAC Web Browser FactBox"
+page 69000 "BAC Show Document FactBox"
 {
+    Caption = 'Document';
     PageType = CardPart;
     SourceTable = "Incoming Document";
     layout
@@ -9,11 +10,13 @@ page 69000 "BAC Web Browser FactBox"
             usercontrol(ShowDocument; ShowDocument)
             {
                 ApplicationArea = all;
+
                 trigger DocumentClicked()
                 begin
-                    Message('Hello');
+                    //Not Working
+                    message('FullScreen');
+                    //CurrPage.ShowDocument.FullScreen();
                 end;
-
             }
         }
     }
@@ -31,7 +34,7 @@ page 69000 "BAC Web Browser FactBox"
 
                 trigger OnAction()
                 begin
-                    //page.run(page::"BAC Web Browser Factbox", Rec);
+                    page.run(page::"BAC Show Document Full", Rec);
                 end;
             }
         }
@@ -60,9 +63,11 @@ page 69000 "BAC Web Browser FactBox"
                     CurrPage.ShowDocument.embedDocument('data:image/jpg;base64,' + Base64Txt);
                 'png':
                     CurrPage.ShowDocument.embedDocument('data:image/png;base64,' + Base64Txt);
+                else
+                    CurrPage.ShowDocument.embedDocument('data:image/png;./Images/NoDucument.png');
             end;
         end else begin
-            CurrPage.ShowDocument.embedDocument('./Images/NoDucument.png');
+            CurrPage.ShowDocument.embedDocument('data:image/png;./Images/NoDucument.png');
         end;
     end;
 }
