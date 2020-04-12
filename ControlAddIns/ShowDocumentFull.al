@@ -15,6 +15,6 @@ controladdin ShowDocumentFull
     StartupScript = 'JsScripts/Start2.js';
 
     event Ready();
-    procedure embedDocument2(inDocument: Text);
+    procedure embedDocument2(inDocument2: Text);
     procedure FullScreen();
 }

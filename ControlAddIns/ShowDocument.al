@@ -1,9 +1,9 @@
 controladdin ShowDocument
 {
-    MaximumHeight = 500;
+    MaximumHeight = 800;
     RequestedHeight = 500;
-    MinimumHeight = 500;
-    MaximumWidth = 600;
+    MinimumHeight = 300;
+    MaximumWidth = 400;
     RequestedWidth = 300;
     MinimumWidth = 300;
     VerticalStretch = true;
@@ -13,7 +13,6 @@ controladdin ShowDocument
     Scripts = 'JsScripts/Code.js';
     StyleSheets = 'StyleSheets/StyleSheet.css';
     StartupScript = 'JsScripts/Start.js';
-    Images = './Images/NoDocument.png';
 
     event Ready();
     event DocumentClicked();

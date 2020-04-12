@@ -27,14 +27,18 @@ page 69000 "BAC Show Document FactBox"
         {
             action(Open)
             {
+                Caption = 'Open';
                 ApplicationArea = All;
                 Promoted = true;
                 PromotedOnly = true;
-                Image = DocInBrowser;
 
                 trigger OnAction()
+                var
+                    IncomDoc: Record "Incoming Document";
                 begin
-                    page.run(page::"BAC Show Document Full", Rec);
+                    IncomDoc.Copy(Rec);
+                    IncomDoc.SetRecFilter();
+                    page.run(page::"BAC Show Document Full", IncomDoc);
                 end;
             }
         }

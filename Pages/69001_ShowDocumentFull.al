@@ -1,5 +1,6 @@
 page 69001 "BAC Show Document Full"
 {
+    Caption = 'Document';
     PageType = Cardpart;
     SourceTable = "Incoming Document";
     layout
@@ -9,11 +10,6 @@ page 69001 "BAC Show Document Full"
             usercontrol(ShowDocumentFull; ShowDocumentFull)
             {
                 ApplicationArea = all;
-                trigger Ready()
-                begin
-                    //Not working
-                    //CurrPage.ShowDocumentFull.FullScreen();
-                end;
             }
         }
     }

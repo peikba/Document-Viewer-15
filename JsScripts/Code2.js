@@ -1,10 +1,10 @@
 
-function embedDocument2(inDocument)
+function embedDocument2(inDocument2)
  
 {
     var Document2 = document.getElementById('webPage');  
  
-    Document2.src = inDocument;
+    Document2.src = inDocument2;
 }
 
 function FullScreen() {
