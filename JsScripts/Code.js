@@ -4,17 +4,8 @@ function embedDocument(inDocument)
 {
     var Document = document.getElementById('webPage');  
  
-    var page; 
-
-    if (inDocument.src='') {
-        page = $('<img id="NoDocument" src = '+Microsoft.Dynamics.NAV.GetImageResource('NoDocument.png'));
-        Document.append(page);
-    } 
-    else
-    {
-        Document.src = inDocument;
-    }
-    
+    Document.src = inDocument;
+        
     Document.onclick = function()
     {
         {

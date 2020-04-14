@@ -45,7 +45,7 @@ page 69001 "BAC Show Document Full"
                     CurrPage.ShowDocumentFull.embedDocument2('data:image/png;base64,' + Base64Txt);
             end;
         end else begin
-            CurrPage.ShowDocumentFull.embedDocument2('/Images/NoDocument.png');
+            CurrPage.ShowDocumentFull.embedDocument2('');
         end;
     end;
 }
