@@ -13,7 +13,8 @@ function embedDocument(inDocument)
         }        
     }
 }
-function FullScreen() {
+
+function SetFrame() {
     function fill(frame) {
         if (!frame)
             return;
@@ -33,6 +34,6 @@ function FullScreen() {
     fill(window.frameElement);
     fill(window.frameElement.ownerDocument && window.frameElement.ownerDocument.defaultView && window.frameElement.ownerDocument.defaultView.frameElement);
 }
-FullScreen();
+SetFrame();
 
 

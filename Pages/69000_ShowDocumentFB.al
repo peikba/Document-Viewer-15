@@ -10,6 +10,10 @@ page 69000 "BAC Show Document FactBox"
             usercontrol(ShowDocument; ShowDocument)
             {
                 ApplicationArea = all;
+                trigger Ready()
+                begin
+                    //message('Hello');
+                end;
 
                 trigger DocumentClicked()
                 begin

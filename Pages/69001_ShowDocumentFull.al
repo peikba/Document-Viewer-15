@@ -1,7 +1,7 @@
 page 69001 "BAC Show Document Full"
 {
     Caption = 'Document';
-    PageType = Cardpart;
+    PageType = Card;
     SourceTable = "Incoming Document";
     layout
     {
@@ -31,7 +31,6 @@ page 69001 "BAC Show Document Full"
             IncomDocAttach.Content.CreateInStream(InStr);
             CopyStream(OutStr, InStr);
             Base64Txt := TempBlob.ToBase64String();
-            //Message('%1', Base64Txt);
             case IncomDocAttach."File Extension" of
                 'pdf':
                     CurrPage.ShowDocumentFull.embedDocument2('data:application/pdf;base64,' + Base64Txt);
