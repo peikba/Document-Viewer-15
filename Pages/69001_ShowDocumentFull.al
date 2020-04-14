@@ -10,11 +10,16 @@ page 69001 "BAC Show Document Full"
             usercontrol(ShowDocumentFull; ShowDocumentFull)
             {
                 ApplicationArea = all;
+
+                trigger Ready2()
+                begin
+                    Populatepage();
+                end;
             }
         }
     }
 
-    trigger OnAfterGetCurrRecord()
+    Procedure Populatepage()
     var
         Base64Txt: Text;
         IncomDocAttach: Record "Incoming Document Attachment";
@@ -40,7 +45,7 @@ page 69001 "BAC Show Document Full"
                     CurrPage.ShowDocumentFull.embedDocument2('data:image/png;base64,' + Base64Txt);
             end;
         end else begin
-            CurrPage.ShowDocumentFull.embedDocument2('data:image/png;./Images/NoDocument.png');
+            CurrPage.ShowDocumentFull.embedDocument2('/Images/NoDocument.png');
         end;
     end;
 }

@@ -12,14 +12,12 @@ page 69000 "BAC Show Document FactBox"
                 ApplicationArea = all;
                 trigger Ready()
                 begin
-                    //message('Hello');
+                    PopulatePage
                 end;
 
                 trigger DocumentClicked()
                 begin
-                    //Not Working
                     message('FullScreen');
-                    //CurrPage.ShowDocument.FullScreen();
                 end;
             }
         }
@@ -48,6 +46,11 @@ page 69000 "BAC Show Document FactBox"
         }
     }
     trigger OnAfterGetCurrRecord()
+    begin
+        PopulatePage();
+    end;
+
+    procedure PopulatePage()
     var
         Base64Txt: Text;
         IncomDocAttach: Record "Incoming Document Attachment";
@@ -75,7 +78,7 @@ page 69000 "BAC Show Document FactBox"
                     CurrPage.ShowDocument.embedDocument('data:image/png;./Images/NoDucument.png');
             end;
         end else begin
-            CurrPage.ShowDocument.embedDocument('data:image/png;./Images/NoDucument.png');
+            CurrPage.ShowDocument.embedDocument('');
         end;
     end;
 }

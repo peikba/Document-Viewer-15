@@ -11,6 +11,6 @@ function createIframe()
 }
 
 createIframe();
-Microsoft.Dynamics.NAV.InvokeExtensibilityMethod('Ready', '');
 
+Microsoft.Dynamics.NAV.InvokeExtensibilityMethod('Ready2', '');
 

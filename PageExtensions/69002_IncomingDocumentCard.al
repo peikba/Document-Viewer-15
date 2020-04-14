@@ -9,7 +9,7 @@ pageextension 69002 "BAC Incoming Document" extends "Incoming Document"
             {
                 ApplicationArea = all;
                 Caption = 'Document';
-                Visible = ExtensionExist;
+                //Visible = ExtensionExist;
                 SubPageLink = "Entry No." = field("Entry No.");
             }
         }

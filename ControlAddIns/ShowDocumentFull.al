@@ -10,11 +10,10 @@ controladdin ShowDocumentFull
     VerticalShrink = true;
     HorizontalStretch = true;
     HorizontalShrink = true;
-    Scripts = 'JsScripts/Code.js';
+    Scripts = 'JsScripts/Code2.js';
     StyleSheets = 'StyleSheets/StyleSheet.css';
-    StartupScript = 'JsScripts/Start.js';
+    StartupScript = 'JsScripts/Start2.js';
 
-    event Ready();
+    event Ready2();
     procedure embedDocument2(inDocument2: Text);
-    procedure FullScreen();
 }
