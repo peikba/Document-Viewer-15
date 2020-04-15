@@ -12,7 +12,7 @@ page 69000 "BAC Show Document FactBox"
                 ApplicationArea = all;
                 trigger Ready()
                 begin
-                    PopulatePage
+                    PopulatePage;
                 end;
 
                 trigger DocumentClicked()
@@ -74,6 +74,8 @@ page 69000 "BAC Show Document FactBox"
                     CurrPage.ShowDocument.embedDocument('data:image/jpg;base64,' + Base64Txt);
                 'png':
                     CurrPage.ShowDocument.embedDocument('data:image/png;base64,' + Base64Txt);
+                'gif':
+                    CurrPage.ShowDocument.embedDocument('data:image/gif;base64,' + Base64Txt);
                 else
                     CurrPage.ShowDocument.embedDocument('data:image/png;./Images/NoDucument.png');
             end;

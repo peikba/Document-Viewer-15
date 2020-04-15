@@ -1,6 +1,7 @@
 {
     "version": "0.2.0",
     "configurations": [
+
         {
             "name": "Local",
             "type": "al",
@@ -16,20 +17,6 @@
             "enableLongRunningSqlStatements": true,
             "longRunningSqlStatementsThreshold": 500,
             "numberOfSqlStatements": 10
-        },
-        {
-            "name": "Publish: Microsoft cloud sandbox",
-            "type": "al",
-            "request": "launch",
-            "startupObjectId": 189,
-            "breakOnError": true,
-            "breakOnRecordWrite": false,
-            "launchBrowser": true,
-            "enableSqlInformationDebugger": true,
-            "enableLongRunningSqlStatements": true,
-            "longRunningSqlStatementsThreshold": 500,
-            "numberOfSqlStatements": 10,
-            "sandboxName": "Sandbox"
         }
     ]
 }

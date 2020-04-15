@@ -24,6 +24,7 @@ page 69001 "BAC Show Document Full"
         Base64Txt: Text;
         IncomDocAttach: Record "Incoming Document Attachment";
         TempBlob: Record TempBlob;
+        Convert : Codeunit "Base64 Convert";
         OutStr: OutStream;
         InStr: InStream;
         cTempBlob: Codeunit "Temp Blob";
