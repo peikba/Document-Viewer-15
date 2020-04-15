@@ -14,29 +14,30 @@ page 69001 "BAC Show Document Full"
                 trigger Ready2()
                 begin
                     Populatepage();
+                    ComponentLoaded := true;
                 end;
             }
         }
     }
 
+    var
+        ComponentLoaded: Boolean;
+
     Procedure Populatepage()
     var
         Base64Txt: Text;
         IncomDocAttach: Record "Incoming Document Attachment";
-        TempBlob: Record TempBlob;
-        Convert : Codeunit "Base64 Convert";
-        OutStr: OutStream;
+        Convert: Codeunit "Base64 Convert";
         InStr: InStream;
-        cTempBlob: Codeunit "Temp Blob";
 
     begin
+        if not ComponentLoaded then
+            exit;
         IncomDocAttach.SetRange("Incoming Document Entry No.", "Entry No.");
         if IncomDocAttach.FindFirst() then begin
             IncomDocAttach.CalcFields(Content);
-            TempBlob.Blob.CreateOutStream(OutStr);
             IncomDocAttach.Content.CreateInStream(InStr);
-            CopyStream(OutStr, InStr);
-            Base64Txt := TempBlob.ToBase64String();
+            Base64Txt := Convert.ToBase64(InStr);
             case IncomDocAttach."File Extension" of
                 'pdf':
                     CurrPage.ShowDocumentFull.embedDocument2('data:application/pdf;base64,' + Base64Txt);
@@ -44,6 +45,8 @@ page 69001 "BAC Show Document Full"
                     CurrPage.ShowDocumentFull.embedDocument2('data:image/jpg;base64,' + Base64Txt);
                 'png':
                     CurrPage.ShowDocumentFull.embedDocument2('data:image/png;base64,' + Base64Txt);
+                'gif':
+                    CurrPage.ShowDocumentFull.embedDocument2('data:image/gif;base64,' + Base64Txt);
             end;
         end else begin
             CurrPage.ShowDocumentFull.embedDocument2('');

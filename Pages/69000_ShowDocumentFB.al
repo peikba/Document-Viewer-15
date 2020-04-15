@@ -12,6 +12,7 @@ page 69000 "BAC Show Document FactBox"
                 ApplicationArea = all;
                 trigger Ready()
                 begin
+                    ComponentLoaded := true;
                     PopulatePage;
                 end;
 
@@ -45,6 +46,9 @@ page 69000 "BAC Show Document FactBox"
             }
         }
     }
+    var
+        ComponentLoaded: Boolean;
+
     trigger OnAfterGetCurrRecord()
     begin
         PopulatePage();
@@ -54,19 +58,17 @@ page 69000 "BAC Show Document FactBox"
     var
         Base64Txt: Text;
         IncomDocAttach: Record "Incoming Document Attachment";
-        TempBlob: Record TempBlob;
-        OutStr: OutStream;
+        Convert: Codeunit "Base64 Convert";
         InStr: InStream;
-        cTempBlob: Codeunit "Temp Blob";
 
     begin
+        if not ComponentLoaded then
+            exit;
         IncomDocAttach.SetRange("Incoming Document Entry No.", "Entry No.");
         if IncomDocAttach.FindFirst() then begin
             IncomDocAttach.CalcFields(Content);
-            TempBlob.Blob.CreateOutStream(OutStr);
             IncomDocAttach.Content.CreateInStream(InStr);
-            CopyStream(OutStr, InStr);
-            Base64Txt := TempBlob.ToBase64String();
+            Base64Txt := Convert.ToBase64(InStr);
             case IncomDocAttach."File Extension" of
                 'pdf':
                     CurrPage.ShowDocument.embedDocument('data:application/pdf;base64,' + Base64Txt);
