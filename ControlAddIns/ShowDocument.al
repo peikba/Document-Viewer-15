@@ -14,6 +14,5 @@ controladdin ShowDocument
     Images = 'Images/NoDocument.png';
 
     event Ready();
-    event DocumentClicked();
     procedure embedDocument(inDocument: Text);
 }

@@ -15,11 +15,6 @@ page 69000 "BAC Show Document FactBox"
                     ComponentLoaded := true;
                     PopulatePage;
                 end;
-
-                trigger DocumentClicked()
-                begin
-                    message('FullScreen');
-                end;
             }
         }
     }
