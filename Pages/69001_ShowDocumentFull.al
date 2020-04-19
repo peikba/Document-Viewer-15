@@ -13,8 +13,8 @@ page 69001 "BAC Show Document Full"
 
                 trigger Ready2()
                 begin
-                    Populatepage();
                     ComponentLoaded := true;
+                    Populatepage();
                 end;
             }
         }

@@ -1,11 +1,9 @@
 controladdin ShowDocument
 {
-    MaximumHeight = 800;
-    RequestedHeight = 615;
-    MinimumHeight = 300;
-    MaximumWidth = 400;
-    RequestedWidth = 350;
-    MinimumWidth = 300;
+    MaximumHeight = 400;
+    RequestedHeight = 400;
+    MaximumWidth = 300;
+    RequestedWidth = 300;
     VerticalStretch = true;
     VerticalShrink = true;
     HorizontalStretch = true;

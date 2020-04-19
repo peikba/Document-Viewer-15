@@ -3,15 +3,8 @@ function embedDocument(inDocument)
  
 {
     var Document = document.getElementById('webPage');  
- 
+    window.addEventListener(onclick, DocumentClicked, false);
     Document.src = inDocument;
-        
-    Document.onclick = function()
-    {
-        {
-            Microsoft.Dynamics.NAV.InvokeExtensibilityMethod('DocumentClicked', []);
-        }        
-    }
 }
 
 function SetFrame() {
@@ -27,11 +20,10 @@ function SetFrame() {
         frame.ownerDocument.querySelector("div.nav-bar-area-box").style.display = "none";
         frame.ownerDocument.querySelector("div.ms-nav-layout-head").style.display = "none";
     }
-    
+
     window.top.document.getElementById("product-menu-bar").style.display = "none";
     fill(window.frameElement);
     fill(window.frameElement.ownerDocument && window.frameElement.ownerDocument.defaultView && window.frameElement.ownerDocument.defaultView.frameElement);
 }
 SetFrame();
-
 
