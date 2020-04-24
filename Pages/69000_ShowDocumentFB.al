@@ -66,18 +66,18 @@ page 69000 "BAC Show Document FactBox"
             Base64Txt := Convert.ToBase64(InStr);
             case IncomDocAttach."File Extension" of
                 'pdf':
-                    CurrPage.ShowDocument.embedDocument('data:application/pdf;base64,' + Base64Txt);
+                    CurrPage.ShowDocument.embedDocument('data:application/pdf;base64,' + Base64Txt, false);
                 'jpg':
-                    CurrPage.ShowDocument.embedDocument('data:image/jpg;base64,' + Base64Txt);
+                    CurrPage.ShowDocument.embedDocument('data:image/jpg;base64,' + Base64Txt, true);
                 'png':
-                    CurrPage.ShowDocument.embedDocument('data:image/png;base64,' + Base64Txt);
+                    CurrPage.ShowDocument.embedDocument('data:image/png;base64,' + Base64Txt, true);
                 'gif':
-                    CurrPage.ShowDocument.embedDocument('data:image/gif;base64,' + Base64Txt);
+                    CurrPage.ShowDocument.embedDocument('data:image/gif;base64,' + Base64Txt, true);
                 else
-                    CurrPage.ShowDocument.embedDocument('data:image/png;./Images/NoDucument.png');
+                    CurrPage.ShowDocument.embedDocument('data:image/png;./Images/NoDucument.png', false);
             end;
         end else begin
-            CurrPage.ShowDocument.embedDocument('');
+            CurrPage.ShowDocument.embedDocument('', false);
         end;
     end;
 }

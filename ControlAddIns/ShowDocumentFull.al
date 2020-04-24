@@ -1,11 +1,9 @@
 controladdin ShowDocumentFull
 {
-    MaximumHeight = 900;
-    RequestedHeight = 500;
-    MinimumHeight = 400;
+    MaximumHeight = 1200;
+    RequestedHeight = 1200;
     MaximumWidth = 600;
-    RequestedWidth = 400;
-    MinimumWidth = 300;
+    RequestedWidth = 600;
     VerticalStretch = true;
     VerticalShrink = true;
     HorizontalStretch = true;
@@ -15,5 +13,5 @@ controladdin ShowDocumentFull
     StartupScript = 'JsScripts/Start2.js';
 
     event Ready2();
-    procedure embedDocument2(inDocument2: Text);
+    procedure embedDocument2(inDocument2: Text; resize: Boolean);
 }

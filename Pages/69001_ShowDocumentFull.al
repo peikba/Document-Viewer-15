@@ -40,16 +40,16 @@ page 69001 "BAC Show Document Full"
             Base64Txt := Convert.ToBase64(InStr);
             case IncomDocAttach."File Extension" of
                 'pdf':
-                    CurrPage.ShowDocumentFull.embedDocument2('data:application/pdf;base64,' + Base64Txt);
+                    CurrPage.ShowDocumentFull.embedDocument2('data:application/pdf;base64,' + Base64Txt,false);
                 'jpg':
-                    CurrPage.ShowDocumentFull.embedDocument2('data:image/jpg;base64,' + Base64Txt);
+                    CurrPage.ShowDocumentFull.embedDocument2('data:image/jpg;base64,' + Base64Txt,true);
                 'png':
-                    CurrPage.ShowDocumentFull.embedDocument2('data:image/png;base64,' + Base64Txt);
+                    CurrPage.ShowDocumentFull.embedDocument2('data:image/png;base64,' + Base64Txt,true);
                 'gif':
-                    CurrPage.ShowDocumentFull.embedDocument2('data:image/gif;base64,' + Base64Txt);
+                    CurrPage.ShowDocumentFull.embedDocument2('data:image/gif;base64,' + Base64Txt,true);
             end;
         end else begin
-            CurrPage.ShowDocumentFull.embedDocument2('');
+            CurrPage.ShowDocumentFull.embedDocument2('',true);
         end;
     end;
 }
